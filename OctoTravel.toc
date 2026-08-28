@@ -1,0 +1,8 @@
+## Interface: 11200
+## Title: OctoTravel
+## Notes: Travel atlas for OctoWoW - boats, zeppelins, tram, flight masters, rentable mounts and portals on the world map and minimap.
+## Author: Krool
+## SavedVariables: OctoTravel_Config, OctoTravel_Custom
+
+data.lua
+OctoTravel.lua
