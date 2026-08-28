@@ -15,6 +15,11 @@ Every way to get around Azeroth, on your world map and minimap:
   towns that offer them
 - **Portals & teleporters** - city portals, the Hyjal and Moonwhisper
   runestone networks
+- **Dungeons & raids** - every open instance with level range, group
+  size, attunement notes and meeting stone locations; click a pin to
+  open the in-game group finder (LFT)
+- **World bosses** - spawn points for Azuregos, Kazzak, the Emerald
+  dragons and the custom bosses
 
 ![OctoTravel pins on the world map](screenshot.png)
 
@@ -52,7 +57,7 @@ Slash commands (`/octotravel` or `/otr`):
 | Command | Effect |
 |---|---|
 | `/otr` | show/hide all pins |
-| `/otr boat` (`zeppelin`, `tram`, `flight`, `rental`, `portal`) | toggle one category |
+| `/otr boat` (`zeppelin`, `tram`, `flight`, `rental`, `portal`, `dungeon`, `raid`, `worldboss`) | toggle one category |
 | `/otr enemy` | show/hide other-faction pins |
 | `/otr minimap` | toggle minimap pins |
 | `/otr add <type> <name>` | add your own pin where you stand |
@@ -67,6 +72,9 @@ Your own pins are saved per account; shift-click one on the map to remove it.
 - Boat, zeppelin and tram boarding points come from the client's own
   transport path data (TaxiPathNode) and 1.12 dock triggers - every
   boat and zeppelin route shown has its path verified in the game files.
+- Dungeon entrances are anchored to meeting stone spawns in the server
+  database; world boss pins use their database spawn points. Raids that
+  the OctoWoW roadmap has not opened yet are left out until they unlock.
 - Custom routes, flight paths and unlock conditions match
   [OctoWoW's official transport page](https://octowow.st/additional-transport-routes).
 - Route times are approximate community measurements - vanilla transport

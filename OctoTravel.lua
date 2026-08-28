@@ -15,9 +15,12 @@ OT.cats = {
   flight   = { icon = "Interface\\TaxiFrame\\UI-Taxi-Icon-Green",    label = "Flight Master", r = 0.5, g = 1.0, b = 0.5, nocrop = true },
   rental   = { icon = "Interface\\Icons\\Ability_Mount_RidingHorse", label = "Mount Rental",  r = 1.0, g = 0.9, b = 0.4 },
   portal   = { icon = "Interface\\Icons\\INV_Misc_Rune_01",          label = "Teleport",      r = 0.8, g = 0.5, b = 1.0 },
+  dungeon  = { icon = "Interface\\Icons\\INV_Misc_Key_03",           label = "Dungeon",       r = 0.9, g = 0.8, b = 0.5 },
+  raid     = { icon = "Interface\\Icons\\INV_Misc_Head_Dragon_01",   label = "Raid",          r = 1.0, g = 0.5, b = 0.2 },
+  worldboss = { icon = "Interface\\Icons\\INV_Misc_Bone_HumanSkull_01", label = "World Boss",  r = 1.0, g = 0.3, b = 0.3 },
 }
 
-local CATORDER = { "boat", "zeppelin", "tram", "flight", "rental", "portal" }
+local CATORDER = { "boat", "zeppelin", "tram", "flight", "rental", "portal", "dungeon", "raid", "worldboss" }
 
 -- minimap yardage per zoom level, outdoor [0] / indoor-cvar profile [1]
 local minimap_zoom = {
@@ -47,6 +50,7 @@ end
 local defaults = {
   enabled = 1, minimap = 1, enemy = 0,
   boat = 1, zeppelin = 1, tram = 1, flight = 1, rental = 1, portal = 1,
+  dungeon = 1, raid = 1, worldboss = 1,
 }
 
 local function InitConfig()
@@ -102,6 +106,7 @@ local function ShowNodeTooltip(pin, tooltip)
   elseif node.faction == "H" then sub = sub .. " |cffff5555(Horde)|r" end
   tooltip:AddLine(sub, 0.9, 0.9, 0.9)
 
+  if node.info  then tooltip:AddLine(node.info, 1, 1, 1) end
   if node.dest  then tooltip:AddLine("To: " .. node.dest, 1, 1, 1) end
   if node.time  then tooltip:AddLine(node.time, 0.7, 0.9, 0.7) end
   if node.freq  then tooltip:AddLine(node.freq, 0.7, 0.9, 0.7) end
@@ -121,6 +126,9 @@ local function ShowNodeTooltip(pin, tooltip)
   end
   if node.destmap and not pin.minimap then
     tooltip:AddLine("Click to view destination map", 0.5, 0.5, 0.5)
+  end
+  if node.lft and LFT_Toggle and not pin.minimap then
+    tooltip:AddLine("Click to open the group finder", 0.5, 0.5, 0.5)
   end
   tooltip:Show()
 end
@@ -181,6 +189,10 @@ local function PinClick()
     DEFAULT_CHAT_FRAME:AddMessage("|cff88ccffOctoTravel:|r removed custom pin '" .. (node.name or "?") .. "'")
     OT:UpdateWorldMap()
     OT.mforce = true
+    return
+  end
+  if node.lft and LFT_Toggle and not this.minimap then
+    LFT_Toggle()
     return
   end
   if node.destmap and not this.minimap then
