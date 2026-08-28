@@ -458,7 +458,7 @@ OctoTravel_Nodes = {
   { map = "Thousand Needles", x = 68.6, y = 41.8, t = "dungeon", name = "Windhorn Caverns",
     info = "Level 25-33, 5 players", lft = 1 },
   { map = "Balor", x = 51.0, y = 66.4, t = "dungeon", name = "Stormwrought Ruins",
-    info = "Two wings: Castle 32-40, Descent 35-44", note = "Meeting stone at the entrance", lft = 1 },
+    info = "5 players; two wings: Castle 32-40, Descent 35-44", note = "Meeting stone at the entrance", lft = 1 },
   { map = "Ashenvale", x = 51.9, y = 76.5, t = "dungeon", name = "The Crescent Grove",
     info = "Level 33-39, 5 players", note = "Meeting stone at the entrance", lft = 1 },
   { map = "Gilneas", x = 28.1, y = 28.3, t = "dungeon", name = "Gilneas City",

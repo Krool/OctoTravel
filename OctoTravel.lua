@@ -535,7 +535,7 @@ SlashCmdList["OCTOTRAVEL"] = function(msg)
     local _, _, typ, name = string.find(rest, "^(%S+)%s*(.*)$")
     typ = string.lower(typ or "")
     if not OT.cats[typ] then
-      Msg("usage: /otr add <boat|zeppelin|tram|flight|rental|portal> <name>")
+      Msg("usage: /otr add <boat|zeppelin|tram|flight|rental|portal|dungeon|raid|worldboss> <name>")
       return
     end
     -- GetPlayerMapPosition is relative to the currently SET map: with the
@@ -584,6 +584,6 @@ SlashCmdList["OCTOTRAVEL"] = function(msg)
       Msg("usage: /otr remove <index from /otr list>")
     end
   else
-    Msg("commands: toggle, boat, zeppelin, tram, flight, rental, portal, enemy, minimap, add, list, remove")
+    Msg("commands: toggle, boat, zeppelin, tram, flight, rental, portal, dungeon, raid, worldboss, enemy, minimap, add, list, remove")
   end
 end

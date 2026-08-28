@@ -16,8 +16,8 @@ Every way to get around Azeroth, on your world map and minimap:
 - **Portals & teleporters** - city portals, the Hyjal and Moonwhisper
   runestone networks
 - **Dungeons & raids** - every open instance with level range, group
-  size, attunement notes and meeting stone locations; click a pin to
-  open the in-game group finder (LFT)
+  size, attunement notes and meeting stone locations; click a dungeon
+  pin to open the in-game group finder (LFT)
 - **World bosses** - spawn points for Azuregos, Kazzak, the Emerald
   dragons and the custom bosses
 
