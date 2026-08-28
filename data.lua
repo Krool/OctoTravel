@@ -394,9 +394,6 @@ OctoTravel_Nodes = {
   -- neutral rental hubs
   { map = "Tanaris", x = 50.8, y = 26.4, t = "rental", name = "Gadgetzan Mount Rental",
     price = "Rent: ~1s for 5 min (+40% speed)", note = "Horses, rams and wolves" },
-  { map = "Winterspring", x = 60.5, y = 37.9, t = "rental", name = "Everlook Ram Rental",
-    icon = "Interface\\Icons\\Ability_Mount_MountainRam",
-    price = "Rent: ~1s for 5 min (+40% speed)" },
 
   -- ========================================== dungeons (open on Octo) ==
   -- Entrances anchored to meeting stone spawns from the server database;
