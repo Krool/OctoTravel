@@ -254,9 +254,9 @@ OctoTravel_Nodes = {
     note = "Druids only (Nighthaven)" },
 
   -- ================================== Turtle/Octo custom boats & ships ==
-  { map = "Stormwind City", x = 21.8, y = 36.9, t = "boat", name = "Stormwind Harbor", faction = "A",
+  { map = "Stormwind City", x = 21.7, y = 56.5, t = "boat", name = "Stormwind Harbor", faction = "A",
     dest = "Auberdine (Darkshore)", destmap = "Darkshore",
-    note = "Deckmaster Javin's pier" },
+    note = "Southernmost pier of the harbor" },
   { map = "Durotar", x = 61.3, y = 26.4, t = "boat", name = "Sparkwater Port Dock", faction = "H",
     dest = "Revantusk Village (The Hinterlands)", destmap = "The Hinterlands",
     note = "Dockworker Shazklench" },
