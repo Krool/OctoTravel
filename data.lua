@@ -215,7 +215,7 @@ OctoTravel_Nodes = {
   { map = "Stonetalon Mountains", x = 48.3, y = 61.7, t = "flight", name = "Tharm", faction = "H" },
   { map = "Stormwind City", x = 71, y = 72.5, t = "flight", name = "Dungar Longdrink", faction = "A" },
   { map = "Stormwind City", x = 21.5, y = 41.5, t = "flight", name = "Steelwing", faction = "A",
-    note = "Stormwind Harbor" },
+    note = "Stormwind Harbor; one-way flight to the SI:7 Outpost on Balor" },
   { map = "Stranglethorn Vale", x = 26.9, y = 77.1, t = "flight", name = "Gringer", faction = "H" },
   { map = "Stranglethorn Vale", x = 27.5, y = 77.8, t = "flight", name = "Gyll", faction = "A" },
   { map = "Stranglethorn Vale", x = 32.5, y = 29.4, t = "flight", name = "Thysta", faction = "H" },
