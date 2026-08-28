@@ -23,7 +23,7 @@ Every way to get around Azeroth, on your world map and minimap:
 
 ![Stormwind Harbor boat pin with tooltip](screenshot.png)
 
-<img src="screenshot-dungeon.png" width="49%" alt="Deadmines dungeon pin with level range, meeting stone and group finder tooltip"> <img src="screenshot-raid.png" width="49%" alt="Molten Core raid pin tooltip in Burning Steppes">
+<img src="screenshot-dungeon.png" width="32%" alt="Deadmines dungeon pin with level range, meeting stone and group finder tooltip"> <img src="screenshot-raid.png" width="32%" alt="Molten Core raid pin tooltip in Burning Steppes"> <img src="screenshot-worldboss.png" width="32%" alt="Emeriss world boss pin tooltip in Duskwood">
 
 ## Install
 
