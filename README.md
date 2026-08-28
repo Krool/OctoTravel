@@ -27,8 +27,15 @@ No DLLs, no game patches, nothing else to install.
 and put the `OctoTravel` folder into `Interface\AddOns\` so you have
 `Interface\AddOns\OctoTravel\OctoTravel.toc`. Restart the game or relog.
 
-**OctoLauncher:** add this repository's git URL as an addon - the folder
-name and .toc already match.
+**OctoLauncher (recommended):** add this URL as an addon:
+
+```
+https://github.com/Krool/OctoTravel
+```
+
+The launcher installs it straight into `Interface\AddOns\OctoTravel` and
+pulls the latest version every time it updates your addons. Nothing else
+to configure.
 
 ## Use
 
