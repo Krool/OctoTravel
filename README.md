@@ -21,7 +21,9 @@ Every way to get around Azeroth, on your world map and minimap:
 - **World bosses** - spawn points for Azuregos, Kazzak, the Emerald
   dragons and the custom bosses
 
-![OctoTravel pins on the world map](screenshot.png)
+![Stormwind Harbor boat pin with tooltip](screenshot.png)
+
+<img src="screenshot-dungeon.png" width="49%" alt="Deadmines dungeon pin with level range, meeting stone and group finder tooltip"> <img src="screenshot-raid.png" width="49%" alt="Molten Core raid pin tooltip in Burning Steppes">
 
 ## Install
 
