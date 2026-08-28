@@ -57,8 +57,9 @@ Your own pins are saved per account; shift-click one on the map to remove it.
 
 - Flight master positions are generated from the server's own spawn
   database, so they include every custom flight point.
-- Boat, zeppelin and tram boarding points come from the 1.12 client's
-  transport trigger data, cross-checked against community sources.
+- Boat, zeppelin and tram boarding points come from the client's own
+  transport path data (TaxiPathNode) and 1.12 dock triggers - every
+  boat and zeppelin route shown has its path verified in the game files.
 - Route times are approximate community measurements - vanilla transport
   schedules drift with server restarts, so treat them as ballpark figures.
 - A few Turtle-custom locations could not be pinned exactly; their tooltips
