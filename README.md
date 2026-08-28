@@ -8,7 +8,7 @@ Every way to get around Azeroth, on your world map and minimap:
   Harbor, Sparkwater Port, the Icepoint Rock ferry, Alah'Thalas...)
 - **Zeppelins** - all towers, every platform's destination
 - **Deeprun Tram** - both stations
-- **Flight masters** - all ~97 of them, vanilla and custom zones alike
+- **Flight masters** - all 99 of them, vanilla and custom zones alike
   (Gilneas, Tel'Abim, Hyjal, Grim Reaches, Balor, Northwind and more),
   color-tagged by faction
 - **Rentable mounts** - Turtle's rental horses, wolves and rams in the
@@ -60,10 +60,10 @@ Your own pins are saved per account; shift-click one on the map to remove it.
 - Boat, zeppelin and tram boarding points come from the client's own
   transport path data (TaxiPathNode) and 1.12 dock triggers - every
   boat and zeppelin route shown has its path verified in the game files.
+- Custom routes, flight paths and unlock conditions match
+  [OctoWoW's official transport page](https://octowow.st/additional-transport-routes).
 - Route times are approximate community measurements - vanilla transport
   schedules drift with server restarts, so treat them as ballpark figures.
-- A few Turtle-custom locations could not be pinned exactly; their tooltips
-  say "position approximate".
 
 Spotted a pin in the wrong place, or something missing? Stand on the right
 spot, run `/otr add <type> <name>`, and open an issue with the coordinates
@@ -74,7 +74,8 @@ command is for.
 
 Zone dimension data and the minimap projection technique come from
 [pfQuest](https://github.com/shagu/pfQuest) by Shagu (MIT). Location
-research draws on the [Turtle WoW wiki](https://turtle-wow.fandom.com)
+research draws on [OctoWoW's transport page](https://octowow.st/additional-transport-routes),
+the [Turtle WoW wiki](https://turtle-wow.fandom.com)
 and [warcraft.wiki.gg](https://warcraft.wiki.gg).
 
 MIT licensed - see [LICENSE](LICENSE).
