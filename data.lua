@@ -40,7 +40,8 @@ OctoTravel_Zones = {
   ["Felwood"]              = { 5750.0, 3833.33 },
   ["Thousand Needles"]     = { 4399.997, 2933.33 },
   ["Desolace"]             = { 4495.83, 2997.913 },
-  ["Stonetalon Mountains"] = { 4883.33, 3256.253 },
+  -- Turtle expanded the Stonetalon map; stock 4883x3256 misplaces minimap pins
+  ["Stonetalon Mountains"] = { 6018.0, 4010.0 },
   ["Tanaris"]              = { 6900.0, 4600.0 },
   ["Moonglade"]            = { 2308.33, 1539.59 },
   ["Winterspring"]         = { 7100.003, 4733.33 },
@@ -48,7 +49,8 @@ OctoTravel_Zones = {
   ["Un'Goro Crater"]       = { 3700.003, 2466.66 },
   -- Cities
   ["Undercity"]            = { 959.3754, 640.11 },
-  ["Stormwind City"]       = { 1344.2694, 896.36 },
+  -- Turtle expanded the Stormwind map for the harbor; stock 1344x896 misplaces minimap pins
+  ["Stormwind City"]       = { 1737.5, 1158.34 },
   ["Ironforge"]            = { 790.629, 527.61 },
   ["Orgrimmar"]            = { 1402.61, 935.42 },
   ["Thunder Bluff"]        = { 1043.75, 695.83 },
@@ -60,6 +62,7 @@ OctoTravel_Zones = {
   ["Icepoint Rock"]        = { 1608.0, 1075.0 },
   ["Tel'Abim"]             = { 3227.0, 2187.0 },
   ["Gilneas"]              = { 3666.0, 2442.0 },
+  ["Gnomeregan"]           = { 769.67, 513.11 },
   ["Thalassian Highlands"] = { 3082.0, 2061.0 },
   ["Blackstone Island"]    = { 2472.0, 1665.0 },
   ["Balor"]                = { 3098.0, 2068.0 },

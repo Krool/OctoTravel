@@ -59,6 +59,10 @@ local function InitConfig()
   for k, v in pairs(defaults) do
     if OctoTravel_Config[k] == nil then OctoTravel_Config[k] = v end
   end
+  -- normalize the custom marker (older versions saved a stale numeric index)
+  for i = 1, table.getn(OctoTravel_Custom) do
+    OctoTravel_Custom[i].custom = true
+  end
 end
 
 local playerFaction -- "Alliance" | "Horde", set on login
@@ -83,7 +87,6 @@ local function EachNode(map, callback)
   for i = 1, table.getn(OctoTravel_Custom) do
     local n = OctoTravel_Custom[i]
     if n.map == map and n.t and OT.cats[n.t] and NodeVisible(n) then
-      n.custom = i
       callback(n)
     end
   end
@@ -470,25 +473,22 @@ ev:SetScript("OnEvent", function()
     playerFaction = UnitFactionGroup("player")
     UpdatePlayerMap()
   elseif event == "WORLD_MAP_UPDATE" then
-    CreateMapButton()
+    -- the event also fires from SetMapToCurrentZone with the map closed;
+    -- only build the button once the frame is actually shown
+    if WorldMapFrame:IsShown() then CreateMapButton() end
     OT:UpdateWorldMap()
   else
     UpdatePlayerMap()
   end
 end)
 
--- minimap updater, throttled
+-- minimap updater, throttled; also resets the browsed map back to the
+-- player zone when the world map closes
 local throttle = 0
+local wasShown
 mup:SetScript("OnUpdate", function()
   if throttle > GetTime() then return end
   throttle = GetTime() + 0.1
-  if OctoTravel_Config and OctoTravel_Nodes then OT:UpdateMinimap() end
-end)
-
--- reset browsed map back to the player zone when the map closes
-local wasShown
-local closer = CreateFrame("Frame")
-closer:SetScript("OnUpdate", function()
   if WorldMapFrame:IsShown() then
     wasShown = true
   elseif wasShown then
@@ -496,6 +496,7 @@ closer:SetScript("OnUpdate", function()
     SetMapToCurrentZone()
     OT.playerMap = CurrentMapName()
   end
+  if OctoTravel_Config and OctoTravel_Nodes then OT:UpdateMinimap() end
 end)
 
 -- ---------------------------------------------------------------- slash --
@@ -559,6 +560,7 @@ SlashCmdList["OCTOTRAVEL"] = function(msg)
       y = math.floor(py * 1000 + 0.5) / 10,
       t = typ,
       name = (name ~= "" and name) or (OT.cats[typ].label),
+      custom = true,
     }
     table.insert(OctoTravel_Custom, node)
     Msg(string.format("added %s '%s' at %.1f, %.1f in %s", typ, node.name, node.x, node.y, node.map))

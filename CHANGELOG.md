@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-01 - Minimap projection fixes
+- Stormwind City and Stonetalon Mountains zone sizes corrected to
+  Turtle's expanded maps (harbor / new Stonetalon area) - minimap pins
+  in both zones were noticeably misplaced. World map pins were fine.
+- Gnomeregan added to the zone table so the Nelly Cogwheel flight
+  master gets a minimap pin.
+- Custom pins no longer write a stale bookkeeping index into
+  SavedVariables; the world map Travel button is only created once the
+  map frame has actually been shown; internal updater frames merged.
+
 ## 2026-08-28 - Screenshots
 - README gallery: Stormwind Harbor boat pin, Deadmines dungeon tooltip,
   Molten Core raid tooltip, Emeriss world boss pin.
