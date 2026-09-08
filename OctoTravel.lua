@@ -150,17 +150,17 @@ OT.CurrentMapName = CurrentMapName
 
 -- open the world map zone with the given name
 local function OpenMapByName(name)
-  local c = 1
-  while c <= 8 do -- every continent the client knows (custom ones included)
+  -- 1.12 has exactly two continents and every zone this addon knows was
+  -- validated against WorldMapArea.dbc on them; do not probe higher indices
+  -- (unverified input to a C API is how the rotateMinimap error happened)
+  for c = 1, 2 do
     local zones = { GetMapZones(c) }
-    if table.getn(zones) == 0 then break end
     for z = 1, table.getn(zones) do
       if zones[z] == name then
         SetMapZoom(c, z)
         return true
       end
     end
-    c = c + 1
   end
   DEFAULT_CHAT_FRAME:AddMessage("|cff88ccffOctoTravel:|r no world map for '" .. tostring(name) .. "'")
   return nil
