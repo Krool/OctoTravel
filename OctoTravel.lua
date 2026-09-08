@@ -303,10 +303,9 @@ function OT:UpdateMinimap()
   if OctoTravel_Config.minimap ~= 1 or OctoTravel_Config.enabled ~= 1 or not zinfo then
     hideall = true
   end
-  -- a rotating minimap needs a facing-rotated projection this client cannot
-  -- supply (no GetPlayerFacing in 1.12; pfQuest disables the same path):
-  -- wrong pins are worse than none
-  if not hideall and GetCVar and GetCVar("rotateMinimap") == "1" then hideall = true end
+  -- NOTE: no rotateMinimap check - that cvar does not exist in 1.12 and this
+  -- client's GetCVar THROWS on an unknown name ("Couldn't find CVar") rather
+  -- than returning nil. Never GetCVar a name you have not seen in FrameXML.
 
   local px, py = 0, 0
   if not hideall then
