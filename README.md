@@ -96,3 +96,12 @@ the [Turtle WoW wiki](https://turtle-wow.fandom.com)
 and [warcraft.wiki.gg](https://warcraft.wiki.gg).
 
 MIT licensed - see [LICENSE](LICENSE).
+
+## Development
+
+`cd tools/test && npm install && npm test` syntax-checks every Lua file and
+runs the 1.12 API allowlist lint (`api-lint.js`): any global call, CVar name
+or event name that does not exist on the 1.12 client fails the run. The
+allowlist is built from WoW.exe's identifier strings plus the shipped
+FrameXML, so it knows OctoWoW's server-side UI globals too. GitHub Actions
+runs the same on every push.
