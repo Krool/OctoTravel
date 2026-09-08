@@ -84,7 +84,7 @@ local function EachNode(map, callback)
     local n = OctoTravel_Nodes[i]
     if n.map == map and NodeVisible(n) then callback(n) end
   end
-  for i = 1, table.getn(OctoTravel_Custom) do
+  for i = 1, table.getn(OctoTravel_Custom or {}) do
     local n = OctoTravel_Custom[i]
     if n.map == map and n.t and OT.cats[n.t] and NodeVisible(n) then
       callback(n)
@@ -150,15 +150,19 @@ OT.CurrentMapName = CurrentMapName
 
 -- open the world map zone with the given name
 local function OpenMapByName(name)
-  for c = 1, 2 do
+  local c = 1
+  while c <= 8 do -- every continent the client knows (custom ones included)
     local zones = { GetMapZones(c) }
+    if table.getn(zones) == 0 then break end
     for z = 1, table.getn(zones) do
       if zones[z] == name then
         SetMapZoom(c, z)
         return true
       end
     end
+    c = c + 1
   end
+  DEFAULT_CHAT_FRAME:AddMessage("|cff88ccffOctoTravel:|r no world map for '" .. tostring(name) .. "'")
   return nil
 end
 
@@ -188,8 +192,9 @@ local function PinClick()
   local node = this.node
   if not node then return end
   if IsShiftKeyDown() and node.custom then
-    RemoveCustomNode(node)
-    DEFAULT_CHAT_FRAME:AddMessage("|cff88ccffOctoTravel:|r removed custom pin '" .. (node.name or "?") .. "'")
+    if RemoveCustomNode(node) then
+      DEFAULT_CHAT_FRAME:AddMessage("|cff88ccffOctoTravel:|r removed custom pin '" .. (node.name or "?") .. "'")
+    end
     OT:UpdateWorldMap()
     OT.mforce = true
     return
@@ -298,6 +303,10 @@ function OT:UpdateMinimap()
   if OctoTravel_Config.minimap ~= 1 or OctoTravel_Config.enabled ~= 1 or not zinfo then
     hideall = true
   end
+  -- a rotating minimap needs a facing-rotated projection this client cannot
+  -- supply (no GetPlayerFacing in 1.12; pfQuest disables the same path):
+  -- wrong pins are worse than none
+  if not hideall and GetCVar and GetCVar("rotateMinimap") == "1" then hideall = true end
 
   local px, py = 0, 0
   if not hideall then
@@ -568,11 +577,12 @@ SlashCmdList["OCTOTRAVEL"] = function(msg)
       Msg("note: no yard-size data for this zone - pin shows on the world map only")
     end
     OT.mforce = true
+    OT:UpdateWorldMap()
   elseif cmd == "list" then
     Msg("custom pins:")
     for i = 1, table.getn(OctoTravel_Custom) do
       local n = OctoTravel_Custom[i]
-      DEFAULT_CHAT_FRAME:AddMessage(string.format("  %d: [%s] %s (%s %.1f, %.1f)", i, n.t, n.name or "?", n.map, n.x, n.y))
+      DEFAULT_CHAT_FRAME:AddMessage(string.format("  %d: [%s] %s (%s %.1f, %.1f)", i, tostring(n.t), n.name or "?", tostring(n.map), n.x or 0, n.y or 0))
     end
   elseif cmd == "remove" then
     local idx = tonumber(rest)
